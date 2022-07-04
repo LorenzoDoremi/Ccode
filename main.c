@@ -5,6 +5,10 @@ double power(double n)
 {
     return n * n - 10;
 }
+
+double editPointer(double* a) {
+    *a = *a**a;
+}
 int main()
 {
     // printf() displays the string inside quotation
@@ -15,42 +19,15 @@ int main()
         nums[i] = rand() % 100;
     }
   /*   selectionSort(nums); */
-
-    /*   int index = 0;
-      int* pointeri = &index;
-      recursion(nums, pointeri); */
-
-    /*    for(int i = 0; i < 10; i++) {
-
-        printf(" %d \n", nums[i]);
-     } */
-
-    double zero = bisection(power, -10.0, 10.0, 100);
-
-    printf(" %d \n", zero);
+     double n = 5.0;
+     double* pointer = &n;
+     editPointer(pointer);
+     printf("%f", n);
 
     return 0;
 }
 
-double bisection(double (*f)(double), double l, double r, int steps)
-{
 
-    double mid = (l + r) / 2;
-    double v = f(mid);
-
-    if (v == 0 || steps == 0)
-    {
-        return v;
-    }
-    else if (v * f(l) < 0)
-    {
-        return bisection(f, l, v, steps - 1);
-    }
-    else
-    {
-        return bisection(f, v, r, steps - 1);
-    }
-}
 
 void selectionSort(int *array)
 {
